@@ -8,7 +8,10 @@ if($_POST) {
     case 'consulta1':
       require('html/estructura/consulta1.php');
     break;
-        case 'consulta3':
+    case 'consulta2':
+      require('html/estructura/consulta2.php');
+    break;
+    case 'consulta3':
       require('html/estructura/consulta3.php');
     break;
     default:
