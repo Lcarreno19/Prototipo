@@ -5,7 +5,7 @@
 	$fecha1 = $_POST['fecha1'];
 	$fecha2 = $_POST['fecha2'];
 	//QUERY PARA MOSTRAR EL NETO
-	$sql = $db->query("SELECT cao_fatura.co_cliente, sum(cao_fatura.total) as total, sum(cao_fatura.valor) as valor, cao_fatura.total_imp_inc, cao_fatura.co_os, cao_fatura.data_emissao, cao_fatura.comissao_cn FROM cao_fatura LEFT JOIN cao_os ON cao_fatura.co_os = cao_os.co_os and cao_fatura.co_sistema = cao_os.co_sistema WHERE (cao_fatura.data_emissao between '$fecha1' and '$fecha2') and cao_os.co_usuario='carlos.arruda' group by Month(cao_fatura.data_emissao)  ");
+	$sql = $db->query("SELECT cao_fatura.co_cliente, sum(cao_fatura.total) as total, sum(cao_fatura.valor) as valor, cao_fatura.total_imp_inc, cao_fatura.co_os, cao_fatura.data_emissao, cao_fatura.comissao_cn FROM cao_fatura LEFT JOIN cao_os ON cao_fatura.co_os = cao_os.co_os and cao_fatura.co_sistema = cao_os.co_sistema WHERE (cao_fatura.data_emissao between '$fecha1' and '$fecha2') and cao_os.co_usuario='$codvendedor' group by Month(cao_fatura.data_emissao)  ");
 	
 	//QUERY PARA MOSTRAR EL SALARIO BRUTO
 	$sql1 = $db->query("SELECT brut_salario FROM cao_salario WHERE co_usuario='$codvendedor' "); 
